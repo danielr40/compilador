@@ -6,51 +6,40 @@ import java.io.FileReader;
 
 public class LC {
 
-    public static Hashtable<String,String> TabelaSimbolos;
+    public static HashTable<String,String> TabelaSimbolos;
 
     public static void inicializarTabelaSimbolos() {
-        TabelaSimbolos.put("TRUE", "boolean");
-        TabelaSimbolos.put("FALSE", "boolean");
-
+		
+		// adicionar palavras reservadas 
+        TabelaSimbolos.put("TRUE", "const");
+        TabelaSimbolos.put("FALSE", "const");
         TabelaSimbolos.put("=", "=");
-
-        TabelaSimbolos.put("<", "comparacao");
-        TabelaSimbolos.put("<=", "comparacao");
-        TabelaSimbolos.put(">", "comparacao");
-        TabelaSimbolos.put(">=", "comparacao");
-        TabelaSimbolos.put("!=", "comparacao");
-
-        TabelaSimbolos.put("+", "operador");
-        TabelaSimbolos.put("-", "operador");
-        TabelaSimbolos.put("*", "operador");
-        TabelaSimbolos.put("/", "operador");
-
-        TabelaSimbolos.put(";", "pontuacao");
-		TabelaSimbolos.put(",", "pontuacao");
-
-        TabelaSimbolos.put("and", "operador_logico");
-        TabelaSimbolos.put("or", "operador_logico");
-        TabelaSimbolos.put("not", "operador_logico");
-
+        TabelaSimbolos.put("<", "<");
+        TabelaSimbolos.put("<=", "<=");
+        TabelaSimbolos.put(">", ">");
+        TabelaSimbolos.put(">=", "<=");
+        TabelaSimbolos.put("!=", "!=");
+        TabelaSimbolos.put("+", "+");
+        TabelaSimbolos.put("-", "-");
+        TabelaSimbolos.put("*", "*");
+        TabelaSimbolos.put("/", "/");
+        TabelaSimbolos.put(";", ";");
+		TabelaSimbolos.put(",", ",");
+        TabelaSimbolos.put("and", "and");
+        TabelaSimbolos.put("or", "or");
+        TabelaSimbolos.put("not", "not");
         TabelaSimbolos.put("aspas", ""+(char)34);
-
-        TabelaSimbolos.put("()", "parentese");
-        TabelaSimbolos.put(")", "parentese");
-
+        TabelaSimbolos.put(")", ")");
+        TabelaSimbolos.put("(", "(");
         TabelaSimbolos.put("final", "final");
 		TabelaSimbolos.put("begin", "begin");
-
-        TabelaSimbolos.put("int", "tipo");
-        TabelaSimbolos.put("byte", "tipo");
-        TabelaSimbolos.put("string", "tipo");
-        TabelaSimbolos.put("boolean", "tipo");
-
+        TabelaSimbolos.put("int", "int");
+        TabelaSimbolos.put("byte", "byte");
+        TabelaSimbolos.put("string", "string");
+        TabelaSimbolos.put("boolean", "boolean");
         TabelaSimbolos.put("readln", "readln");
-
         TabelaSimbolos.put("writeln", "writeln");
-
         TabelaSimbolos.put("while", "while");
-
         TabelaSimbolos.put("if", "if");
         TabelaSimbolos.put("else", "else");
     }
@@ -79,7 +68,7 @@ public class LC {
 		File programaFonte = new File(args[0]);
 		BufferedReader reader = new BufferedReader(new FileReader(programaFonte));
 		
-		TabelaSimbolos = new Hashtable<String,String>();
+		TabelaSimbolos = new HashTable<String,String>();
         inicializarTabelaSimbolos();
 		
 		while(reader.ready())
